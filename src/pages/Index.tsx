@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import YouTube from 'react-youtube';
 import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 const Index = () => {
   const videos = [
@@ -17,10 +18,12 @@ const Index = () => {
 
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isButtonVisible, setIsButtonVisible] = useState(true);
+  const [clickCount, setClickCount] = useState(0);
   let timeout: ReturnType<typeof setTimeout> | null = null;
 
   const handleNextVideo = () => {
     setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
+    setClickCount((prevCount) => prevCount + 1);
   };
 
   const handleMouseMove = () => {
@@ -62,6 +65,31 @@ const Index = () => {
       >
         <Button onClick={handleNextVideo}>Next Video</Button>
       </div>
+      {clickCount >= 3 && (
+        <div className="absolute left-4 bottom-4 transition-opacity duration-300">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button>Submit</Button>
+            </DialogTrigger>
+            <DialogContent>
+              <DialogHeader>
+                <DialogTitle>Submit a Video</DialogTitle>
+                <DialogDescription>
+                  This is a strictly curated collection of great videos. If you think we missed one, you can submit a pull request by editing this file:
+                  <a 
+                    href="https://github.com/AntonOsika/goodvideos/edit/main/src/pages/Index.tsx" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-500 hover:underline"
+                  >
+                    https://github.com/AntonOsika/goodvideos/edit/main/src/pages/Index.tsx
+                  </a>
+                </DialogDescription>
+              </DialogHeader>
+            </DialogContent>
+          </Dialog>
+        </div>
+      )}
     </div>
   );
 };
