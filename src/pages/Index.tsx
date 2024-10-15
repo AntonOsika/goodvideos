@@ -4,6 +4,10 @@ import { Button } from "@/components/ui/button";
 
 const Index = () => {
   const videos = [
+    
+     // To submit a video:
+     // Copy one line, put the last part of the youtube URL between the ' ', and update the title after the //
+
     'dQw4w9WgXcQ', // Rick Astley - Never Gonna Give You Up
     'jNQXAC9IVRw', // Me at the zoo (first YouTube video)
     'kJQP7kiw5Fk', // Luis Fonsi - Despacito ft. Daddy Yankee
