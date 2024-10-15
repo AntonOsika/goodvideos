@@ -5,10 +5,6 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 
 const Index = () => {
   const videos = [
-    
-     // To submit a video:
-     // Copy one line, put the last part of the youtube URL between the ' ', and update the title after the //
-
     'dQw4w9WgXcQ', // Rick Astley - Never Gonna Give You Up
     'jNQXAC9IVRw', // Me at the zoo (first YouTube video)
     'kJQP7kiw5Fk', // Luis Fonsi - Despacito ft. Daddy Yankee
@@ -71,24 +67,22 @@ const Index = () => {
             </DialogTrigger>
             <DialogContent className="sm:max-w-[425px]">
               <DialogHeader>
-                <DialogTitle className="text-2xl font-bold mb-4">Our Manifest</DialogTitle>
+                <DialogTitle className="text-2xl font-bold mb-4">Intentionality</DialogTitle>
                 <DialogDescription className="text-lg space-y-4">
                   <p>
-                    We believe in human agency and deliberately consuming timeless and human-curated content.
+                    We believe in human agency and intentionally consuming timeless and human-curated content. Not an algorithm that brainwashes and serves "quick to digest" videos.
                   </p>
                   <p>
-                    Not an algorithm that brainwashes and serves you "quick to digest" videos.
-                  </p>
-                  <p>
-                    If you think we missed a video, you can submit a pull request to add it{' '}
+                    If you think we missed a video, you can{' '}
                     <a 
                       href="https://github.com/AntonOsika/goodvideos/edit/main/src/pages/Index.tsx" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-blue-500 hover:underline"
                     >
-                      here
-                    </a>.
+                      submit a pull request
+                    </a>{' '}
+                    to add it.
                   </p>
                 </DialogDescription>
               </DialogHeader>
