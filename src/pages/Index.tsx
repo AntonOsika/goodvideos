@@ -59,37 +59,43 @@ const Index = () => {
         />
       </div>
       <div 
-        className={`absolute bottom-4 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 ${
+        className={`absolute bottom-4 left-1/2 transform -translate-x-1/2 transition-opacity duration-300 flex gap-2 ${
           isButtonVisible ? 'opacity-100' : 'opacity-0'
         }`}
       >
         <Button onClick={handleNextVideo}>Next Video</Button>
-      </div>
-      {clickCount >= 3 && (
-        <div className="absolute left-4 bottom-4 transition-opacity duration-300">
+        {clickCount >= 3 && (
           <Dialog>
             <DialogTrigger asChild>
               <Button>Submit</Button>
             </DialogTrigger>
-            <DialogContent>
+            <DialogContent className="sm:max-w-[425px]">
               <DialogHeader>
-                <DialogTitle>Submit a Video</DialogTitle>
-                <DialogDescription>
-                  This is a strictly curated collection of great videos. If you think we missed one, you can submit a pull request by editing this file:
-                  <a 
-                    href="https://github.com/AntonOsika/goodvideos/edit/main/src/pages/Index.tsx" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-blue-500 hover:underline"
-                  >
-                    https://github.com/AntonOsika/goodvideos/edit/main/src/pages/Index.tsx
-                  </a>
+                <DialogTitle className="text-2xl font-bold mb-4">Our Manifest</DialogTitle>
+                <DialogDescription className="text-lg space-y-4">
+                  <p>
+                    We believe in human agency and deliberately consuming timeless and human-curated content.
+                  </p>
+                  <p>
+                    Not an algorithm that brainwashes and serves you "quick to digest" videos.
+                  </p>
+                  <p>
+                    If you think we missed a video, you can submit a pull request to add it{' '}
+                    <a 
+                      href="https://github.com/AntonOsika/goodvideos/edit/main/src/pages/Index.tsx" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="text-blue-500 hover:underline"
+                    >
+                      here
+                    </a>.
+                  </p>
                 </DialogDescription>
               </DialogHeader>
             </DialogContent>
           </Dialog>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 };
