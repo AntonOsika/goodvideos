@@ -13,7 +13,7 @@ const Index = () => {
 
   const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
   const [isButtonVisible, setIsButtonVisible] = useState(true);
-  let timeout: number | null = null;
+  let timeout: ReturnType<typeof setTimeout> | null = null;
 
   const handleNextVideo = () => {
     setCurrentVideoIndex((prevIndex) => (prevIndex + 1) % videos.length);
@@ -34,8 +34,8 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-black relative">
-      <div className="w-full h-screen">
+    <div className="h-screen w-screen overflow-hidden relative">
+      <div className="absolute inset-0">
         <YouTube
           videoId={videos[currentVideoIndex]}
           opts={{
@@ -43,8 +43,12 @@ const Index = () => {
             height: '100%',
             playerVars: {
               autoplay: 1,
+              controls: 0,
+              modestbranding: 1,
+              rel: 0,
             },
           }}
+          className="w-full h-full"
         />
       </div>
       <div 
